@@ -11,6 +11,7 @@ public class PTra07_05 {
 
 		// ★ int型の配列arrayを宣言して、5個の領域を確保してください
 
+			int[]array = new int[5];
 
 		/*
 		 * ★ 下記の仕様でfor文を記述してください
@@ -23,8 +24,16 @@ public class PTra07_05 {
 
 			// ★ 0～100000の中からランダムで値を取得して、配列arrayのi番目に代入してください
 
+				for(int i=0 ; i < array.length ; i++) {
+
+					int limitNumber = 100000 ;
+					array[i]  = new java.util.Random().nextInt(limitNumber);
+
 
 			// ★ 配列arrayのi番目の値を出力してください
+
+					System.out.println(array[i]);
+					}
 
 
 		//------for end
