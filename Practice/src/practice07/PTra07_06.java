@@ -10,12 +10,24 @@ public class PTra07_06 {
 	public static void main(String[] args) {
 
 		// ★ ※2次元配列を用いています
-		int[][] array = {
-				{500,40,6},
-				{70,8,90,1000}
-		};
+		int[][] array = { { 500, 40, 6 }, { 70, 8, 90, 1000 } };
 
 		// ★ 配列arrayに格納されている全ての数字の平均を出力してください
 
+		int sum = 0 ;
+		int count =0 ;
+
+		for (int value[] : array) {
+
+
+
+			for (int i : value) {
+				sum += i;
+				count++;
+			}
+
+		}
+		System.out.println(sum / count);
 	}
+
 }
