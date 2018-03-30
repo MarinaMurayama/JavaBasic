@@ -18,22 +18,53 @@ public class PTra10_06 {
 		 * carインスタンスを3件作成し、それぞれの色、ガソリンを入力して決定してください
 		 * 各carインスタンスのrunメソッドを実行して、それぞれ「目的地にまでn時間かかりました。残りのガソリンは、xリットルです」を出力してください。
 		 */
-		Car car1 =new Car();
-			car1.serialNo= 10000 ;
-			car1.color = "Red" ;
-			car1.gasoline = 50 ;
 
-		Car car2 =new Car();
-			car2.serialNo= 10000 ;
-			car2.color = "Red" ;
-			car2.gasoline = 50 ;
-
-		Car car3 =new Car();
-			car3.serialNo= 10000 ;
-			car3.color = "Red" ;
-			car3.gasoline = 50 ;
+		Car cars[] = new Car[3];
 
 
+		Car cars1= new Car();
+			cars1.serialNo= 10000 ;
+			cars1.color = "Red" ;
+			cars1.gasoline = 50 ;
 
+		Car cars2 = new Car();
+			cars2.serialNo= 20000 ;
+			cars2.color = "Blue" ;
+			cars2.gasoline = 40 ;
+
+		Car cars3 = new Car();
+			cars3.serialNo= 30000 ;
+			cars3.color = "Yerrow" ;
+			cars3.gasoline = 30 ;
+
+
+			cars[0] = cars1;
+			cars[1] = cars2;
+			cars[2] = cars3;
+
+
+			final int distance = 300 ;
+
+
+			for(int i = 0 ; i < cars.length; i++) {
+				int n = 0;
+				int total = 0;
+			while(distance > total) {
+
+				 cars[i].run();
+
+				n++ ;
+
+				if(cars[i].mileage == -1) {
+					System.out.println("目的地に到達できませんでした");
+				}else {
+					total += cars[i].mileage ;
+				}
+			}
+				int x = cars[i].gasoline ;
+
+			System.out.println("目的地にまで"+ n + "時間かかりました。残りのガソリンは、" + x + "リットルです");
+		}
 	}
 }
+
