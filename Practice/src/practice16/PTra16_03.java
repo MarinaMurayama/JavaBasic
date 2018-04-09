@@ -16,9 +16,17 @@ public class PTra16_03 {
 	 *	・その後、改行をして「PTra16_03#toString()の処理」という文字列を連結してください
 	 */
 
-	public static void main(String[] args) {
+	@Override
+	public String toString() {
+	        return super.toString()+"\nPTra16_03#toString()の処理";
+	    }   //☆メモ☆オーバーライド・親クラスのtoString処理、\n改行、文字列
 
+
+		public static void main(String[] args) {
+
+			PTra16_03 ptra16_03 = new PTra16_03();
+	       System.out.println(ptra16_03.toString());
 		// ★ PTra16_03クラスのtoStringメソッドの内容を出力してください
-
-	}
+		}
 }
+
