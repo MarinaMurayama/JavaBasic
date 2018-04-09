@@ -16,5 +16,13 @@ public class PTra17_04 {
 		 * ※ Thread.sleep を使用すること
 		 */
 
+		try{
+			System.out.println(str);
+			Thread.sleep(50000);
+
+			}catch(InterruptedException e){
+				e.printStackTrace();
+			}
+
 	}
 }
