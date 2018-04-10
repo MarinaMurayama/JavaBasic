@@ -22,12 +22,10 @@ public class PTra02_10 {
 		 * ※ プログラムは何行書いても良いです
 		 */
 
-			coffee *= 1.08 ;
-			snack *=1.08 ;
-
-			moneyInHand -= coffee + snack ;
-
-
-			System.out.println(moneyInHand);
+			int total = (coffee * 2) + snack;	// 合計金額
+			double tax = total * 0.08;			// 消費税の金額
+			int taxTruncation = (int)tax;	// 日本円は小数点が無いので、小数点以下を切り捨て
+			moneyInHand = moneyInHand - (total + taxTruncation);	// 所持金から、合計金額＋消費税を引く
+			System.out.println("所持金：" + moneyInHand);
 		}
 	}
