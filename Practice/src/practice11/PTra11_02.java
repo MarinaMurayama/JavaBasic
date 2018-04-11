@@ -6,6 +6,8 @@ package practice11;
  * Copyright(c) Rhizome Inc. All Rights Reserved.
  */
 
+import java.util.Scanner;
+
 public class PTra11_02 {
 	public static void main(String[] args) {
 
@@ -16,17 +18,24 @@ public class PTra11_02 {
 
 		// ★ ユーザが入力した文字列が、本情報のタイトル一部に含まれていた場合は、その本情報を出力してください
 
-		 java.util.Scanner scanner = new java.util.Scanner(System.in);
+		/* Scanner scanner = new Scanner(System.in);
 		 String line = scanner.nextLine();
 
-
 		 for(int i = 0;  i< bookList.length; i++) {
+ 			if (bookList[i].title.indexOf(line) != -1) {
+ 				System.out.println(bookList[i].dispBookInfo());
+		 	}
+		 } */
 
-		 if (bookList[i].title.indexOf(line) != -1) {
+		 Scanner scanner = new Scanner(System.in);
+			String line = scanner.nextLine();
 
-		 System.out.println(bookList[i].dispBookInfo());
-		 }
-		 }
+			for (Book book : bookList) {  //入力した文字列を代入
+				if (book.title.indexOf(line) >= 0) {  //☆Stringｸﾗｽの検索ﾒｿｯﾄﾞ☆bookのtitle☆対象の文字列.indexOf(検索する文字列)
+					System.out.println(book.dispBookInfo());
+					System.out.println("-----------------------------");
+				}
+			}
 	}
 }
 
