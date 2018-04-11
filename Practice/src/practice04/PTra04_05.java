@@ -17,7 +17,7 @@ public class PTra04_05 {
 		System.out.print("じゃんけんゲームを開始します。");
 
 		// 変数winFlgがtrueだった場合にループが終わります
-		while (!winFlg /* winFlg == falseと同じ意味 */) {
+		while (!winFlg /* winFlg == falseと同じ意味 */) {    //☆勝ったらゲーム終了
 
 			System.out.println("あなたの手は？");
 			System.out.println("0:グー、1：チョキ、2：パー");
@@ -44,7 +44,7 @@ public class PTra04_05 {
 			 *
 			 * ※ プログラムは何行書いても良いです
 			 */
-			if (cpuHand == 0) {
+			/*if (cpuHand == 0) {
 				System.out.println("グー！");
 
 				   	switch (myHand) {
@@ -52,9 +52,9 @@ public class PTra04_05 {
 				   			break;
 				   			case 1: System.out.println("負け");
 				   				break;
-				   			case 2: winFlg = !winFlg ;
+				   			case 2: winFlg = !winFlg ;     ←trueの表示の方がすっきりして見える
 				   				System.out.println("勝ち");
-				   					break;
+				   					break;                 	←※判定できなかった場合のパターンも必要
 				   }
 
 			} else if (cpuHand == 1) {
@@ -83,8 +83,55 @@ public class PTra04_05 {
 									break;
 		   }
 
-			}
+			}*/
 
+
+			if (cpuHand == 0) {
+				System.out.println("グー！");
+
+				// 勝ち負け判定
+				if (myHand == 2) {
+					System.out.println("あなたの勝ち！");
+					winFlg = true;
+				} else if (myHand == 1) {
+					System.out.println("あなたの負け！もう一勝負！");
+				} else if (myHand == 0) {
+					System.out.println("あいこ！もう一勝負！");
+				} else {
+					System.out.println("判定出来ない！もう一回！");
+				}
+
+			} else if (cpuHand == 1) {
+				System.out.println("チョキ！！");
+
+				// 勝ち負け判定
+				if (myHand == 0) {
+					System.out.println("あなたの勝ち！");
+					winFlg = true;
+				} else if (myHand == 2) {
+					System.out.println("あなたの負け！もう一勝負！");
+				} else if (myHand == 1) {
+					System.out.println("あいこ！もう一勝負！");
+				} else {
+					System.out.println("判定出来ない！もう一回！");
+				}
+
+			} else {
+				System.out.println("パー！！");
+
+				// 勝ち負け判定
+				if (myHand == 1) {
+					System.out.println("あなたの勝ち！");
+					winFlg = true;
+				} else if (myHand == 0) {
+					System.out.println("あなたの負け！もう一勝負！");
+				} else if (myHand == 2) {
+					System.out.println("あいこ！もう一勝負！");
+				} else {
+					System.out.println("判定出来ない！もう一回！");
+				}
+
+			}
 		}
 	}
 }
