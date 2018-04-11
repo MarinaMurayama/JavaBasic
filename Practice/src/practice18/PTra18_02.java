@@ -37,14 +37,11 @@ public class PTra18_02 {
 		 * ★ ArrayListを作成して、Playerインスタンスを格納してください
 		 */
 
-
 		 ArrayList<Player> array = new ArrayList<>();
 	        try(Scanner scanner = new Scanner(new File("file/BestElevenCandidate.csv"))) {
 	        	while (scanner.hasNext()) {
-
 	            	String list = scanner.nextLine();
 	            	String[]a = list.split(",",0);      //☆「,」で区切る
-
 
 	            	//クラスのインスタンスにセット
 	            	Player p = new Player(); //ｲﾝｽﾀﾝｽは同じ名前でも大丈夫
@@ -52,10 +49,7 @@ public class PTra18_02 {
 	            	p.setName(a[1]);
 	            	p.setCountry(a[2]);
 	            	p.setTeam(a[3]);
-
 	            	array.add(p);
-
-
 	            }
 	        } catch (FileNotFoundException e) {
 	            System.out.println("ファイルが見つかりません");
@@ -68,7 +62,7 @@ public class PTra18_02 {
 //	        }
 
 	        for(Player player : array) {
-	        	System.out.println(player.toString());
+	        	System.out.println(player);
 	        }
 		}
 }

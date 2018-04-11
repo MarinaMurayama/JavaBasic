@@ -29,16 +29,13 @@ public class PTra18_03 {
 		 ArrayList<Player> array = new ArrayList<>();
 	        try(Scanner scanner = new Scanner(new File("file/BestElevenCandidate.csv"))) {
 	        	while (scanner.hasNext()) {
-
 	            	String list = scanner.nextLine();	//☆読み込んだものを代入
 	            	String[]a = list.split(",",0);      //☆「,」で区切る　splitは基本0指定でOK。
-
-	        	 		Player p = new Player();    //Playerｸﾗｽの箱を用意
+	        	 	Player p = new Player();    //Playerｸﾗｽの箱を用意
 	        	 		p.setPosition(a[0]);	//セット
 	        	 		p.setName(a[1]);
 	        	 		p.setCountry(a[2]);
 	        	 		p.setTeam(a[3]);
-
 	        	 		array.add(p);  //格納（ｸﾗｽ型ﾘｽﾄにｸﾗｽ型）
 	            	}
 

@@ -56,7 +56,7 @@ public class PTra18_04 {
 		int mfCount = 0;
 		int fwCount = 0;
 
-
+/*
 		for (Player player : array) {
 			if (player.getPosition().equals("GK")) {
 				if (gkCount < 1) {
@@ -85,6 +85,38 @@ public class PTra18_04 {
 					System.out.println(player.toString());
 					fwCount++;
 				}
+			}
+		}   */
+
+		for (Player player : array) {        //toStringを使わなくてもarrayに格納されているものを出力すれば・・
+			switch (player.getPosition()) {   //条件　プレイヤーのポジション
+				case "GK":
+					if (gkCount < 1) {
+						System.out.println(player);
+						gkCount++;
+					}
+					break;
+
+				case "DF":
+					if (dfCount < 4) {
+						System.out.println(player);
+						dfCount++;
+					}
+					break;
+
+				case "MF":
+					if (mfCount < 4) {
+						System.out.println(player);
+						mfCount++;
+					}
+					break;
+
+				case "FW":
+					if (fwCount < 2) {
+						System.out.println(player);
+						fwCount++;
+					}
+					break;
 			}
 		}
 	}
