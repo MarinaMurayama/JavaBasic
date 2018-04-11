@@ -6,6 +6,8 @@ package practice10;
  * Copyright(c) Rhizome Inc. All Rights Reserved.
  */
 
+import java.util.Scanner;
+
 public class PTra10_06 {
 
 	/*
@@ -19,52 +21,53 @@ public class PTra10_06 {
 		 * 各carインスタンスのrunメソッドを実行して、それぞれ「目的地にまでn時間かかりました。残りのガソリンは、xリットルです」を出力してください。
 		 */
 
-		Car cars[] = new Car[3];
+		// 車の製造
+				Scanner scanner = new Scanner(System.in);
+				Car[] cars = new Car[3];
 
+				for (int i = 0; i < cars.length; i++) {  //車3台分の入力が完了するまでﾙｰﾌﾟ
+					System.out.println("------------------------------------");
+					System.out.println((i + 1) + "台目"); //変数を増やさずiを活用
+					cars[i] = new Car();    //とことんiを活用。ﾙｰﾌﾟでｲﾝｽﾀﾝｽを3台分作成。
 
-		Car cars1= new Car();
-			cars1.serialNo= 10000 ;
-			cars1.color = "Red" ;
-			cars1.gasoline = 50 ;
+					System.out.println("シリアル№、車体カラー、ガソリン量をカンマ区切りで入力してください");
+					String line = scanner.nextLine();  //↑ｶﾝﾏ区切りで入力がﾎﾟｲﾝﾄ。あとでｶﾝﾏ分割の配列にするから。
 
-		Car cars2 = new Car();
-			cars2.serialNo= 20000 ;
-			cars2.color = "Blue" ;
-			cars2.gasoline = 40 ;
+					String[] inputInfo = line.split(",");  //入力したものをsplit(",");でｶﾝﾏ分割の配列にする。
 
-		Car cars3 = new Car();
-			cars3.serialNo= 30000 ;
-			cars3.color = "Yerrow" ;
-			cars3.gasoline = 30 ;
-
-
-			cars[0] = cars1;
-			cars[1] = cars2;
-			cars[2] = cars3;
-
-
-			final int distance = 300 ;
-
-
-			for(int i = 0 ; i < cars.length; i++) {
-				int n = 0;
-				int total = 0;
-			while(distance > total) {
-
-				 cars[i].run();
-
-				n++ ;
-
-				if(cars[i].mileage == -1) {
-					System.out.println("目的地に到達できませんでした");
-				}else {
-					total += cars[i].mileage ;
+					cars[i].serialNo = Integer.parseInt(inputInfo[0]); //String型なので型を変更
+					cars[i].color = inputInfo[1];
+					cars[i].gasoline = Integer.parseInt(inputInfo[2]); //String型なので型を変更
 				}
-			}
-				int x = cars[i].gasoline ;
 
-			System.out.println("目的地にまで"+ n + "時間かかりました。残りのガソリンは、" + x + "リットルです");
-		}
+				// それぞれの車を走らせる。
+				final int distance = 200;
+				int[] count = new int[cars.length];  //countの中には時間or目的地に到達できなかったときは-1が入る。
+                              //↑cars.lengh分のcount要素を作って！
+
+				for (int i = 0; i < cars.length; i++) { //車3台分のﾙｰﾌﾟ
+						int move = 0;
+					while (distance - move > 0) { //車を走らせるﾙｰﾌﾟ
+						int ret = cars[i].run();  //Carｸﾗｽのrunﾒｿｯﾄﾞの実行結果をretに代入
+						if (ret == -1) { //ﾗﾝﾀﾞﾑで-1(ｶﾞｿﾘﾝが0)を返されたら車の要素に-1を入れる…出力のif文で使う。
+							count[i] = -1;
+							break;
+						}
+						move += ret;   //moveに走行距離を代入
+						count[i]++;    //次の車へ。
+					}
+				}
+
+				// 出力
+				for (int i = 0; i < count.length; i++) {
+					if (count[i] == -1) {
+						System.out.println((i + 1) + "台目は目的地に到達できませんでした");
+					} else {
+						System.out.println((i + 1) + "台目の車が掛かった時間：" + count[i] + "時間");
+					}
+				}
+
+
 	}
 }
 

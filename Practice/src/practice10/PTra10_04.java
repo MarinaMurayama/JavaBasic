@@ -29,8 +29,6 @@ public class PTra10_04 {
 			System.out.println(i+1 + "人目の情報を入力します");		/* ##には、カウントを入れてください */
 			System.out.println("ユーザID（数字）、 ユーザ名、メールアドレス、パスワードをカンマ区切りで入力してください");
 
-
-
 			// ★ コマンドプロンプトに入力された値を、String型の変数lineに格納してください
 			String line = scanner.nextLine() ;
 
@@ -42,7 +40,7 @@ public class PTra10_04 {
 
 			users[i] = new User() ;
 
-			users[i].userId = Integer.parseInt(deta[0]) ;
+			users[i].userId = Integer.parseInt(deta[0]) ;  //ここだけﾌｨｰﾙﾄﾞがint型なので。
 			users[i].userNm= deta[1];
 			users[i].mail= deta[2];
 			users[i].password= deta[3];
@@ -51,13 +49,17 @@ public class PTra10_04 {
 		//----------- ループ end
 
 		// ★ usersに格納されている全てのインスタンスの、フィールドuserId, userNm, mail, passwordを出力してください
-
-		 for(int j =0 ; j < users.length ; j++) {
+		 /*for(int j =0 ; j < users.length ; j++) {
 			System.out.println(users[j].userId);
 			System.out.println(users[j].userNm);
 			System.out.println(users[j].mail);
 			System.out.println(users[j].password);
-
-	}
+	} */
+		 for (User us : users) {
+				System.out.println(us.userId);
+				System.out.println(us.userNm);
+				System.out.println(us.mail);
+				System.out.println(us.password);
+			}
 }
 }
