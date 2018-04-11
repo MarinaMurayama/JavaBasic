@@ -23,21 +23,19 @@ public class PTra05_04 {
 		 */
 
 		// ①
-
-
-			boolean weekFlg = false;
+       	/*	boolean weekFlg = false;
 
 			while (!weekFlg ) {
 
 				System.out.println("0～6の整数を入力してください");
 
 				String line = scanner.nextLine();
-				int week = Integer.parseInt(line) ;
+				int week = Integer.parseInt(line) ;  ←入力された文字を数字にして使いたかったので。
 
 
 				switch(week) {
 
-					case 0: weekFlg = !weekFlg ;
+					case 0: weekFlg = !weekFlg ;  ←全部につけるとごちゃつく。修正する時にも面倒。
 						System.out.println("日曜");
 						break;
 
@@ -64,11 +62,45 @@ public class PTra05_04 {
 					case 6: weekFlg = !weekFlg ;
 						System.out.println("土曜");
 						break;
-
-
-
 					}
 				}
+				*/
+
+		boolean loopFlg = true;
+		while (loopFlg) {  //loopFlgがtrueの間は繰り返す
+			// ①
+			System.out.println("0～6の整数を入力してください");
+
+			String line = scanner.nextLine();
+			loopFlg = false; //ここポイント
+
+			switch(line) {
+				case "0":     //☆メモ☆入力したものがString型でも"0"と文字表記にすればそのまま使える。
+					System.out.println("日曜");
+					break;
+				case "1":
+					System.out.println("月曜");
+					break;
+				case "2":
+					System.out.println("火曜");
+					break;
+				case "3":
+					System.out.println("水曜");
+					break;
+				case "4":
+					System.out.println("木曜");
+					break;
+				case "5":
+					System.out.println("金曜");
+					break;
+				case "6":
+					System.out.println("土曜");
+					break;
+				default:
+					System.out.println("正しい値を入力してください");
+					loopFlg = true; //ここポイント
+			}
+		}
 				}
 			}
 
