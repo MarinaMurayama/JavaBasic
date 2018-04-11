@@ -12,7 +12,7 @@ import practice15.common.Room;
 public class PTra15_02 {
 	public static void main(String[] args) {
 
-		Room room = new Java2Month();     //3ページ目参照
+		Room room = new Java2Month();     //Java2MonthｺｰｽはRoomｺｰｽを継承している
 
 		// roomに格納されたJava2MonthインスタンスのgetCurriculumメソッドを呼び出してください
 
