@@ -19,10 +19,10 @@ public class PTra13_07 {
 	public static void main(String[] args) {
 
 		// ★ SuperHeroインスタンスとSlimeインスタンスを作成し、それぞれの名前に"勇者（装備あり）", "スライム"を設定してください
-		SuperHero hero = new SuperHero();
+		SuperHero superHero = new SuperHero();
 		Slime slime = new Slime();
 
-		hero.setName("勇者(装備あり)");
+		superHero.setName("勇者(装備あり)");
 		slime.setName("スライム");
 
 
@@ -31,7 +31,7 @@ public class PTra13_07 {
 		Item item = new Item("こんぼう",4);
 
 		// ★ 作成したItemインスタンスをSuperHeroに持たせてください
-		hero.setEquipment(item);
+		superHero.setEquipment(item);
 
 		/*
 		 * ★ SuperHeroとSlimeを、どちらかが体力０になるまで戦わせます
@@ -40,7 +40,7 @@ public class PTra13_07 {
 		 * 上記を繰り返し行います
 		 */
 
-		while(true) {
+	/*    while(true) {
 			System.out.println(hero.getName()+"の攻撃！");
 			boolean isSlimeDead = slime.damage(hero.attack());  //boolean型でスライムが生きているか確認。ｈｐがゼロだとtrueが入る。
 
@@ -57,6 +57,30 @@ public class PTra13_07 {
 				System.out.println(slime.getName() + "は" + hero.getName() + "との戦闘に勝利した");
 				break;
 			}
+		} */
+
+		boolean heroWin = true;
+		while (true) {
+			System.out.println(superHero.getName() + "の攻撃");
+			int heroAttack = superHero.attack();
+			if (slime.damage(heroAttack)) {
+				System.out.println(slime.getName() + "は倒れた・・・\n");
+				break;
+			}
+
+			System.out.println(slime.getName() + "の攻撃");
+			int slimeAttack = slime.attack();
+			if (superHero.damage(slimeAttack)) {
+				System.out.println(superHero.getName() + "は倒れた・・・\n");
+				heroWin = false;
+				break;
+			}
+		}
+
+		if (heroWin) {
+			System.out.println(superHero.getName() + "は" + slime.getName() + "との戦闘に勝利した");
+		} else {
+			System.out.println(slime.getName() + "は" + superHero.getName() + "との戦闘に勝利した");
 		}
 
 
